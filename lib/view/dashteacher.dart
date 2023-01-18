@@ -17,7 +17,7 @@ class Teachersdashboard extends StatelessWidget {
               color: Colors.deepOrangeAccent),
         ),
       ),
-      body: Loginpage(),
+      body: Container(),
     );
   }
 }

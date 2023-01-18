@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oneproject/view/LoginAdmin.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:oneproject/view/page_name.dart';
 
 import 'constraints.dart';
 
@@ -240,7 +241,9 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                   padding: EdgeInsets.all(10),
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(PageNames.admin_login);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.blueAccent,
@@ -254,7 +257,9 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(PageNames.loginteacher);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.blueAccent,
@@ -268,7 +273,9 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(PageNames.dashstaff);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.blueAccent,
@@ -282,7 +289,9 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       ),
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(PageNames.dashfee);
+                      },
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.blueAccent,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:oneproject/view/dashadmin.dart';
+import 'package:oneproject/view/page_name.dart';
 
 class Loginpage extends StatelessWidget {
   const Loginpage({super.key});
@@ -111,6 +112,7 @@ class Loginpage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
+                      Get.toNamed(PageNames.dashadmin);
                     } else {
                       print('not validated');
                     }
