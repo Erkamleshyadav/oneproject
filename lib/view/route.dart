@@ -3,6 +3,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:oneproject/view/LoginAdmin.dart';
 import 'package:oneproject/view/aboutus_dash.dart';
 import 'package:oneproject/view/dashadmin.dart';
+import 'package:oneproject/view/dashstaff.dart';
 import 'package:oneproject/view/drawerplushome.dart';
 import 'package:oneproject/view/feedash.dart';
 import 'package:oneproject/view/loginTeachers.dart';
@@ -25,7 +26,8 @@ class MyRouts {
             name: PageNames.dashteachers, page: (() => Teachersdashboard())),
         GetPage(name: PageNames.dashfee, page: (() => FeeDashboard())),
         GetPage(name: PageNames.admin_login, page: (() => AdminLoginPage())),
-        GetPage(name: PageNames.dashstaff, page: (() => Staffdashboard())),
+        GetPage(name: PageNames.loginstaff, page: (() => StaffLoginpage())),
         GetPage(name: PageNames.loginteacher, page: (() => TeacherLoginPage())),
+        GetPage(name: PageNames.dashStaff, page: (() => Staffdashboard())),
       ];
 }

@@ -7,6 +7,7 @@ class PageNames {
   static const String dashteachers = "/Teachersdashboard";
   static const String dashfee = "/FeeDashboard";
   static const String admin_login = "/AdminLoginPage";
-  static const String dashstaff = "/Staffdashboard";
+  static const String loginstaff = "/StaffLoginpage";
   static const String loginteacher = "/TeacherLoginPage";
+  static const String dashStaff = "/Staffdashboard";
 }

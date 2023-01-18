@@ -242,7 +242,9 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Get.toNamed(PageNames.admin_login);
+                        Get.toNamed(
+                          PageNames.admin_login,
+                        );
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -274,7 +276,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                     ),
                     InkWell(
                       onTap: () {
-                        Get.toNamed(PageNames.dashstaff);
+                        Get.toNamed(PageNames.loginstaff);
                       },
                       child: Container(
                         decoration: BoxDecoration(
