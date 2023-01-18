@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oneproject/view/Lps_schoolpage.dart';
+import 'package:oneproject/view/drawerplushome.dart';
 import 'package:oneproject/view/page_name.dart';
 import 'package:oneproject/view/route.dart';
 
