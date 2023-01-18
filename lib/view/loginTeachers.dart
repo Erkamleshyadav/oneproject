@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oneproject/view/admindashboard.dart';
+import 'package:oneproject/view/page_name.dart';
 
-class Loginpage extends StatelessWidget {
-  const Loginpage({super.key});
+class TeacherLoginPage extends StatelessWidget {
+  const TeacherLoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +109,6 @@ class Loginpage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
-                      Get.to(AdminDeskpanel());
                     } else {
                       print('not validated');
                     }

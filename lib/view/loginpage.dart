@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oneproject/view/teacherdeskpanel.dart';
+import 'package:oneproject/view/dashadmin.dart';
 
-class TeachersLoginpage extends StatelessWidget {
-  const TeachersLoginpage({super.key});
+class Loginpage extends StatelessWidget {
+  const Loginpage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
+
     return Form(
       key: _formKey,
       child: Column(
@@ -19,6 +20,7 @@ class TeachersLoginpage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: TextFormField(
+              textCapitalization: TextCapitalization.words,
               validator: (value) {
                 if (value!.isEmpty) {
                   return 'Invalid credential';
@@ -109,7 +111,6 @@ class TeachersLoginpage extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (_formKey.currentState!.validate()) {
-                      Get.to(TeachersDeskpanel());
                     } else {
                       print('not validated');
                     }

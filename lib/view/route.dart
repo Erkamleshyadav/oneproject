@@ -1,26 +1,31 @@
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:oneproject/view/Dasboards.dart';
-import 'package:oneproject/view/AdminLoginpage.dart';
-import 'package:oneproject/view/Lps_homepage.dart';
-import 'package:oneproject/view/Lps_schoolpage.dart';
-import 'package:oneproject/view/Teachersloginpage.dart';
-import 'package:oneproject/view/admindashboard.dart';
 
+import 'package:oneproject/view/LoginAdmin.dart';
+import 'package:oneproject/view/aboutus_dash.dart';
+import 'package:oneproject/view/dashadmin.dart';
+import 'package:oneproject/view/drawerplushome.dart';
+import 'package:oneproject/view/feedash.dart';
+import 'package:oneproject/view/loginTeachers.dart';
+import 'package:oneproject/view/loginpage.dart';
+import 'package:oneproject/view/loginstaffs.dart';
 import 'package:oneproject/view/page_name.dart';
 import 'package:oneproject/view/splash.dart';
-import 'package:oneproject/view/teacherdeskpanel.dart';
+
+import 'dashteacher.dart';
 
 class MyRouts {
   static List<GetPage> get list => [
-        GetPage(name: "/", page: (() => NewScreen())),
-        GetPage(name: PageNames.dashboard, page: (() => AdminDashboard())),
-        GetPage(name: PageNames.Lps_SchoolPage, page: (() => SecondScreen())),
+        GetPage(name: "/", page: (() => DrawerwithHomepage())),
         GetPage(name: PageNames.splash, page: (() => SplashScreen())),
-        GetPage(name: PageNames.login, page: (() => Loginpage())),
-        GetPage(name: PageNames.adminpanel, page: (() => AdminDeskpanel())),
+        GetPage(name: PageNames.home, page: (() => DrawerwithHomepage())),
+        GetPage(name: PageNames.customlogin, page: (() => Loginpage())),
+        GetPage(name: PageNames.aboutusdash, page: (() => AboutUsDashboard())),
+        GetPage(name: PageNames.dashadmin, page: (() => AdminDeskpanel())),
         GetPage(
-            name: PageNames.TeachersLogin, page: (() => TeachersLoginpage())),
-        GetPage(
-            name: PageNames.Teacherspanel, page: (() => TeachersDeskpanel())),
+            name: PageNames.dashteachers, page: (() => Teachersdashboard())),
+        GetPage(name: PageNames.dashfee, page: (() => FeeDashboard())),
+        GetPage(name: PageNames.admin_login, page: (() => AdminLoginPage())),
+        GetPage(name: PageNames.dashstaff, page: (() => Staffdashboard())),
+        GetPage(name: PageNames.loginteacher, page: (() => TeacherLoginPage())),
       ];
 }

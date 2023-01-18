@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:oneproject/view/Lps_schoolpage.dart';
+import 'package:oneproject/view/drawerplushome.dart';
 
 class SplashScreen extends StatefulWidget {
   SplashScreen({super.key});
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(Duration(seconds: 2), (() {
-      Get.off(NewScreen());
+      Get.off(DrawerwithHomepage());
     }));
   }
 
