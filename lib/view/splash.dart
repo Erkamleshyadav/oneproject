@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:oneproject/view/constraints.dart';
 import 'package:oneproject/view/drawerplushome.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -25,18 +26,21 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        color: Colors.blue,
-        child: Center(
-          child: Text(
-            'welcome',
-            style: TextStyle(
-                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+        body: Container(
+          height: double.infinity,
+          width: double.infinity,
+          color: Colors.blue,
+          child: Center(
+            child: Text(
+              'welcome',
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 }

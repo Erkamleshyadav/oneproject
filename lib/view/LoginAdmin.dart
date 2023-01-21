@@ -17,6 +17,7 @@ class _AdminLoginPageState extends State<AdminLoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
         centerTitle: true,
         title: Text(
           'Admin Login Page',

@@ -1,9 +1,13 @@
+import 'dart:io';
+import 'dart:ui';
+
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oneproject/view/LoginAdmin.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:oneproject/view/page_name.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'constraints.dart';
 
@@ -26,6 +30,21 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
   double _currentpage = 0;
   int _currentpostion = 0;
 
+  File? image;
+
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final pickedphoto = File(image.path);
+      setState(() {
+        this.image = pickedphoto;
+      });
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -47,23 +66,59 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
           ],
         ),
         appBar: AppBar(
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.notification_important),
+            ),
+            IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          ],
           centerTitle: true,
-          title: Text('LPS School'),
+          title: Container(
+            child: Center(
+              child: Text(
+                'Search',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            decoration: BoxDecoration(
+                color: Colors.green[50],
+                borderRadius: BorderRadius.circular(20)),
+            height: 30,
+            width: 200,
+          ),
         ),
         drawer: Drawer(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(200),
+            ),
+          ),
+          width: 280,
           child: ListView(
             children: [
               DrawerHeader(
-                decoration: BoxDecoration(),
                 child: Column(
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
-                          radius: 40,
-                        ),
+                        GestureDetector(
+                            onTap: () => pickImage(),
+                            child: image != null
+                                ? ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image.file(
+                                      image!,
+                                      fit: BoxFit.cover,
+                                      height: 100,
+                                      width: 100,
+                                    ),
+                                  )
+                                : CircleAvatar(
+                                    child: Icon(Icons.question_mark),
+                                  )),
                         SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         Text(
                           'Mr.Kamlesh',
@@ -78,61 +133,92 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                 ),
               ),
               Divider(
-                height: 5,
+                thickness: 10,
+                color: Colors.blueAccent,
+                indent: 10,
+                endIndent: 10,
+                height: 3,
               ),
               ListTile(
+                minLeadingWidth: 10,
                 dense: true,
                 onTap: () {},
                 iconColor: Colors.deepOrange,
-                leading: Icon(Icons.admin_panel_settings),
+                leading: Icon(
+                  Icons.admin_panel_settings,
+                ),
                 title: Text('Admin'),
                 subtitle: Text('email'),
                 trailing: Icon(Icons.keyboard_arrow_right),
               ),
               Divider(
+                color: Colors.redAccent,
+                indent: 70,
+                thickness: 2,
                 height: 5,
               ),
               ListTile(
+                minLeadingWidth: 10,
                 dense: true,
                 onTap: () {},
                 iconColor: Colors.deepOrange,
-                leading: Icon(Icons.person_add),
+                leading: Icon(
+                  Icons.person_add,
+                ),
                 title: Text('Teaches Log'),
                 subtitle: Text('email'),
                 trailing: Icon(Icons.keyboard_arrow_right),
               ),
               Divider(
+                color: Colors.redAccent,
+                thickness: 2,
+                indent: 70,
                 height: 5,
               ),
               ListTile(
+                minLeadingWidth: 10,
                 dense: true,
                 onTap: () {},
                 iconColor: Colors.deepOrange,
-                leading: Icon(Icons.group_add),
+                leading: Icon(
+                  Icons.group_add,
+                ),
                 title: Text('Staff members'),
                 subtitle: Text('email'),
                 trailing: Icon(Icons.keyboard_arrow_right),
               ),
               Divider(
+                color: Colors.redAccent,
+                thickness: 2,
+                indent: 70,
                 height: 5,
               ),
               ListTile(
+                minLeadingWidth: 10,
                 dense: true,
                 onTap: () {},
                 iconColor: Colors.deepOrange,
-                leading: Icon(Icons.design_services),
+                leading: Icon(
+                  Icons.design_services,
+                ),
                 title: Text('Services'),
                 subtitle: Text('Bus/Van/Rikshaw/other'),
                 trailing: Icon(Icons.keyboard_arrow_right),
               ),
               Divider(
+                color: Colors.redAccent,
+                thickness: 2,
+                indent: 70,
                 height: 5,
               ),
               ListTile(
+                minLeadingWidth: 10,
                 dense: true,
                 onTap: () {},
                 iconColor: Colors.deepOrange,
-                leading: Icon(Icons.currency_rupee),
+                leading: Icon(
+                  Icons.currency_rupee,
+                ),
                 title: Text('Fee Structures'),
                 subtitle: Text('Payment summary'),
                 trailing: Icon(Icons.keyboard_arrow_right),
@@ -167,7 +253,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                     child: Text(
                       'Privacy',
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 10,
                           fontWeight: FontWeight.bold,
                           color: Colors.green),
                     ),
@@ -176,44 +262,45 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       color: Colors.amber,
                       borderRadius: BorderRadius.circular(10)),
                   margin: EdgeInsets.all(20),
-                  height: 50,
+                  height: 25,
                 ),
               ),
               Container(
                 child: Center(
                     child: Text('Contacts Us',
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 10,
                             fontWeight: FontWeight.bold,
                             color: Colors.yellow))),
                 decoration: BoxDecoration(
                     color: Colors.greenAccent,
                     borderRadius: BorderRadius.circular(10)),
                 margin: EdgeInsets.all(20),
-                height: 50,
+                height: 25,
               ),
               Container(
                 child: Center(
                     child: Text('Terms and conditions',
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 10,
                             fontWeight: FontWeight.bold,
                             color: Colors.white))),
                 decoration: BoxDecoration(
                     color: Colors.blueAccent,
                     borderRadius: BorderRadius.circular(10)),
                 margin: EdgeInsets.all(20),
-                height: 50,
+                height: 25,
               ),
             ],
           ),
         ),
-        body: Container(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               CarouselSlider(
                 items: countryList.map((e) {
                   return Card(
+                    color: Colors.amber[50],
                     child: Image.network(
                       e.trim().toString(),
                       fit: BoxFit.fill,
@@ -248,7 +335,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.blueAccent,
+                            gradient: LiGradient,
                             borderRadius: BorderRadius.circular(20)),
                         child: Center(
                           child: Text(
@@ -264,6 +351,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
+                            gradient: LiGradient,
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.circular(20)),
                         child: Center(
@@ -280,6 +368,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
+                            gradient: LiGradient,
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.circular(20)),
                         child: Center(
@@ -296,6 +385,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
+                            gradient: LiGradient,
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.circular(20)),
                         child: Center(
@@ -310,6 +400,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       onTap: () {},
                       child: Container(
                         decoration: BoxDecoration(
+                            gradient: LiGradient,
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.circular(20)),
                         child: Center(
@@ -324,6 +415,7 @@ class _DrawerwithHomepageState extends State<DrawerwithHomepage> {
                       onTap: () {},
                       child: Container(
                         decoration: BoxDecoration(
+                            gradient: LiGradient,
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.circular(20)),
                         child: Center(

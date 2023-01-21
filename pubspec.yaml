@@ -29,13 +29,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
- 
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   dots_indicator: ^2.1.0
   flutter:
     sdk: flutter
   get: ^4.6.5
+  http: ^0.13.5
+  image_picker: ^0.8.6
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -61,6 +62,8 @@ flutter:
     - pictures/fee.png
     - pictures/service.png
     - pictures/teachers.png
+    - pictures/profile.jpg
+    - pictures/menubars.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
